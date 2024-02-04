@@ -15,6 +15,9 @@ const MainPage = ({homepageData, globalData, komisiData}) => {
                 <Button text="Daftar Sekarang" addedClass='bg-secondary-color py-2 px-3' textClass='text-sm font-semibold'></Button>
             </div>
         </div>
+        <div className='w-[80vw] mx-auto'>
+            <Slideshow homepageData={homepageData} />
+        </div>
         <div className='w-[80vw] grid grid-cols-3 gap-x-5 mx-auto bg-white py-14'>
             {homepageData.offers ? (
                 homepageData.offers.map((item) => (
@@ -42,10 +45,7 @@ const MainPage = ({homepageData, globalData, komisiData}) => {
         <div className='w-[80vw] mx-auto'>
             <Banner globalData={globalData}/>
         </div>
-        <div className='w-[80vw] mx-auto'>
-            <Slideshow homepageData={homepageData} />
-        </div>
-        <div className='w-[80vw] mx-auto'>
+        <div className='w-full mx-auto'>
             <Footer komisiData={komisiData} />
         </div>
     </div>

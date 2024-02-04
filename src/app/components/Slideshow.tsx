@@ -2,12 +2,11 @@
 import { useState, useEffect } from 'react';
 
 const Slideshow = ({homepageData}) => {
-    console.log("SAdsad", homepageData);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % homepageData.slideshow.img.length);
+      setIndex((prevIndex) => (prevIndex + 1) % homepageData.slideshow?.img?.length);
     }, 3000);
 
     return () => clearInterval(intervalId);
@@ -15,8 +14,7 @@ const Slideshow = ({homepageData}) => {
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-        {homepageData ?
-            homepageData.slideshow.map((imageUrl, idx) => (
+        {homepageData.slideshow?.map((imageUrl, idx) => (
                 <img
                 key={idx}
                 src={imageUrl.img}
@@ -25,8 +23,7 @@ const Slideshow = ({homepageData}) => {
                     index === idx ? 'opacity-100' : 'opacity-0'
                 }`}
                 />
-            ))
-        : " "}
+            ))}
     </div>
   );
 };
